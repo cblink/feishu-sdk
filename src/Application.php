@@ -3,7 +3,6 @@
 namespace Cblink\FeiShu;
 
 use Pimple\Container;
-use ZhenMu\Support\Http\AbstractRequestClient;
 use ZhenMu\Support\Traits\PimpleApplicationTrait;
 
 /**
@@ -30,6 +29,8 @@ class Application extends Container
         Bot\BotServiceProvider::class,
     ];
 
+    protected $accessToken = null;
+
     public function __construct(array $config = [], array $values = [])
     {
         parent::__construct($values);
@@ -41,11 +42,11 @@ class Application extends Container
 
     public function setHttpClientAccessToken(\ZhenMu\Support\Contracts\AccessToken $accessToken)
     {
-        AbstractRequestClient::$accessToken = $accessToken;
+        $this->accessToken = $accessToken;
     }
 
     public function getHttpClientAccessToken()
     {
-        return AbstractRequestClient::$accessToken;
+        return $this->accessToken;
     }
 }
