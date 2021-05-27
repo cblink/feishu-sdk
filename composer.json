@@ -1,0 +1,27 @@
+{
+    "name": "cblink/feishu",
+    "description": "Package description here.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mouyong",
+            "email": "my242551325@gmail.com"
+        }
+    ],
+    "require": {
+        "pimple/pimple": "^3.0",
+        "zhenmu/support": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cblink\\FeiShu\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cblink\\FeiShu\\ServiceProvider"
+            ]
+        }
+    }
+}
