@@ -2,7 +2,6 @@
 
 namespace Cblink\FeiShu;
 
-use Cblink\FeiShu\AccessToken\AbstractAccessToken;
 use ZhenMu\Support\Http\AbstractRequestClient;
 
 class Client extends AbstractRequestClient
@@ -12,10 +11,7 @@ class Client extends AbstractRequestClient
     public function __construct($app = null, $accessToken = null)
     {
         if (is_null($accessToken)) {
-            if (!$this instanceof AbstractAccessToken) {
-                /** @var Application $app */
-                $accessToken = $app ? $app->getHttpClientAccessToken() : null;
-            }
+            $accessToken = $app ? $app->getHttpClientAccessToken() : null;
         }
 
         parent::__construct($app, $accessToken);
