@@ -1,4 +1,4 @@
-<h1 align="center"> notice-feishu </h1>
+<h1 align="center"> feishu SDK </h1>
 
 <p align="center"> .</p>
 
@@ -6,7 +6,7 @@
 ## Installing
 
 ```shell
-$ composer require zhenmu/notice-feishu -vvv
+$ composer require cblink/feishu -vvv
 ```
 
 ## Usage
