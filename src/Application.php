@@ -14,6 +14,7 @@ use ZhenMu\Support\Traits\PimpleApplicationTrait;
  * @property-read AccessToken\AppTenantAccessToken $app_tenant_access_token
  * @property-read Message\Message $message
  * @property-read Contact\User $user
+ * @property-read Contact\Department $department
  * @property-read WebhookBot\WebhookBot $webhook_bot
  * @property-read Bot\Bot $bot
  */
