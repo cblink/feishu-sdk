@@ -9,7 +9,10 @@
         }
     ],
     "require": {
+        "ext-openssl": "*",
         "pimple/pimple": "^3.0",
+        "symfony/http-foundation": "^4.0|^5.0",
+        "symfony/event-dispatcher": "^4.0|^5.0",
         "zhenmu/support": "dev-master"
     },
     "autoload": {

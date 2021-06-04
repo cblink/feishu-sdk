@@ -3,6 +3,7 @@
 namespace Cblink\FeiShu\WebhookBot;
 
 use Cblink\FeiShu\Client;
+use Cblink\FeiShu\Encryptor;
 
 class WebhookBot extends Client
 {
@@ -15,7 +16,7 @@ class WebhookBot extends Client
         $timestamp = strtotime($date = date('Y-m-d H:i:s'));
 
         $signStr = sprintf("%s\n%s", $timestamp, $secret);
-        $sign = hash_hmac('sha256', "", $signStr, true);
+        $sign = Encryptor::hash_mac_sha256($signStr);
         $encodeStr = base64_encode($sign);
 
         $params['timestamp'] = $timestamp;
@@ -31,6 +32,10 @@ class WebhookBot extends Client
 
     public function sendMessage($content, string $hook_id, $msg_type = 'text', $secret = null)
     {
+        if ($msg_type === 'text') {
+            $content['text'] = strval($content['text']);
+        }
+
         return $this->httpPostJson(sprintf('/bot/v2/hook/%s', $hook_id), $this->signature([
             'msg_type' => $msg_type,
             'content' => $content,
